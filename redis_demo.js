@@ -51,7 +51,7 @@ app.get('/api/product/price/:price', (req, res) => {
                 const product = products.find(v => v.price === parseInt(req.params.price))
                 if (!product) res.status(404).send('Data not found.')
                 res.send(product)
-                client.setex('productName', 600, JSON.stringify(productName));
+                client.setex('productName', 600, JSON.stringify(product));
                 console.log('products retrieved from the API');
             }
         });
